@@ -13,18 +13,18 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		//**** This is a demo for update operation on mySql using JDBC ***
+		//**** This is a demo for delete operation on mySql using JDBC ***
 		
 		//we will see how to open database connection...
 		
 		try
 		{
-			Connection conn= null;
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3307/satishlesson","root","Yoonja7979!!");
-			System.out.println("Connection successful.");
+			Connection conn;
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/satishlesson","root","Yoonja7979!!");
+			System.out.println("database has been connected");
 			Statement stmt = conn.createStatement();
-			stmt.executeUpdate("update student set password='Test003' where name='yeyul'");
-			System.out.println("Update has been completed.");
+			stmt.executeUpdate("delete from student where name='yeyul'");
+			System.out.println("deletion has been completed.");
 			stmt.close();
 			conn.close();
 		}
