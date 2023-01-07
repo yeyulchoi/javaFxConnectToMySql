@@ -14,7 +14,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 		// This is a demo or connecting a java program to a database
-		//we will see how to open database connection.
+		//we will see how to open database connection...
 		
 		try
 		{
