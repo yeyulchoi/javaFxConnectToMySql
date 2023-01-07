@@ -13,26 +13,20 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		//**** This is a demo for inserting a record into mySql database ***
+		//**** This is a demo for update operation on mySql using JDBC ***
 		
 		//we will see how to open database connection...
 		
 		try
 		{
-			Connection con = null;
-			//Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3307/satishlesson","root","Yoonja7979!!");
-			System.out.println("Connection is successful.");
-			
-	// we need to insert a record into the database
-			//create object type statement; when we insert the record into the db, the object statement will do it.
-			Statement stmt = con.createStatement();
-			stmt.executeUpdate("insert into student values('Tom','Test001','India',89)");
-			System.out.println("Record has been inserted.");
+			Connection conn= null;
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3307/satishlesson","root","Yoonja7979!!");
+			System.out.println("Connection successful.");
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("update student set password='Test003' where name='yeyul'");
+			System.out.println("Update has been completed.");
 			stmt.close();
-			con.close();
-			
-			
+			conn.close();
 		}
 		catch(SQLException e)
 		{
