@@ -13,7 +13,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		// This is a demo or connecting a java program to a database
+		//**** This is a demo for inserting a record into mySql database ***
+		
 		//we will see how to open database connection...
 		
 		try
@@ -22,6 +23,13 @@ public class Main extends Application {
 			//Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3307/satishlesson","root","Yoonja7979!!");
 			System.out.println("Connection is successful.");
+			
+	// we need to insert a record into the database
+			//create object type statement; when we insert the record into the db, the object statement will do it.
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate("insert into student values('Tom','Test001','India',89)");
+			System.out.println("Record has been inserted.");
+			stmt.close();
 			con.close();
 			
 			
